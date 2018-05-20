@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人小说收藏网站</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <script src="/jquery-3.0.0.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        .panel-primary{float: none;margin-left: auto;margin-right: auto;margin-top: 150px;border-color: #222;background-color: #222;  }
+        .panel-primary .panel-heading{background-color: #222;border-color: #fff}
+        .btn-inverse{background-color: #fff;border-color: #080808;color: #222}
+        .panel-primary.col-xs-12{margin-top: 20px}
+        body{background-image: url("/image/timg.jpg")}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+    <a class="navbar-brand" href="#">ZhongGui Fan</a>
+</nav>
+<!--<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="navbar-header">-->
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+                <!--<span class="sr-only">Toggle navigation</span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            <!--<a class="navbar-brand" href="#">gufushan</a>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
+        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+            <!--<ul class="nav navbar-nav">-->
+                <!--<li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>-->
+                <!--<li class="dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">功能 <span class="caret"></span></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li class="dropdown-header" >业务功能</li>-->
+                        <!--<li><a href="#">信息建立</a></li>-->
+                        <!--<li><a href="#">信息查询</a></li>-->
+                        <!--<li><a href="#">信息管理</a></li>-->
+                        <!--<li role="separator" class="divider"></li>-->
+                        <!--<li class="dropdown-header" >系统功能</li>-->
+                        <!--<li><a href="#">设置</a></li>-->
+                        <!--<li role="separator" class="divider"></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!--<li><a href="#">帮助</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
+
+<div>
+    <div style="display: inline-block;margin-top: 80px;margin-left: auto;margin-right: auto;float: none;vertical-align: middle;text-align: center">
+        <div><h2 style="color: white">102号美女</h2></div>
+        <img src="/image/iphone@2x.png" class="img-responsive center-block" alt="" width="70%">
+    </div>
+    <div class="panel panel-primary col-xs-12 col-sm-8 col-md-6 col-lg-4" style="display: inline-block;vertical-align: middle">
+        <div class="panel-heading">
+            <h2 class="panel-title">和她联系</h2>
+        </div>
+        <div class="panel-body">
+            <form class="form-signin" action="/user/dologin"  method="post">
+                <div class="form-group" >
+                    <input type="text" name="username" class="form-control input-lg "placeholder="用户名">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control input-lg " placeholder="密码">
+                </div>
+                <button type="submit" class="btn btn-inverse btn-lg btn-block">登录</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mytest
+    password: Hades.1001
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+  thymeleaf:
+    prefix: classpath:/templates/
+    mode: LEGACYHTML5
+
+server:
+  port: 80
+
+
+
