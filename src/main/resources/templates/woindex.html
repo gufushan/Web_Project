@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>hello</title>
+
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/DashBoard.css">
+
+</head>
+<body>
+
+<div class="row continer">
+
+    <div class="col-md-3 leftContiner">
+        <div id="main1" class="col-md-12 smallEcharts"></div>
+        <div id="main2" class="col-md-12 smallEcharts"></div>
+    </div>
+
+    <div id="main3" class="col-md-6 MapEcharts">2</div>
+
+    <div class="col-md-3 rightContiner">
+        <div id="main4" class="col-md-12 smallEcharts"></div>
+        <div id="main5" class="col-md-12 smallEcharts"></div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="/js/echarts.min.js"></script>
+<script type="text/javascript" src="/js/china.js"></script>
+<script type="text/javascript">
+    var mychart1 = echarts.init(document.getElementById("main1"));
+    var mychart2 = echarts.init(document.getElementById("main2"));
+    var mychart3 = echarts.init(document.getElementById("main3"));
+    var mychart4 = echarts.init(document.getElementById("main4"));
+    var mychart5 = echarts.init(document.getElementById("main5"));
+
+    var option1 = {
+        title: {
+            top:'5%',
+            left:'5%',
+            text: '小沃账户',
+            textStyle:{
+                color:'rgb(31,162,230)',
+                fontSize:25
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        graphic:[{
+            type: 'text',
+            left: 'center',
+            top: '20%',
+            z: 20,
+            style: {
+                fill: 'rgb(255, 255, 255)',
+                text: '210.5亿人',
+                font: 'bolder 30px Microsoft YaHei'
+            }
+        },{
+            type: 'text',
+            left: 'center',
+            top: '30%',
+            z: 20,
+            style: {
+                fill: 'rgb(31,162,230)',
+                text: 'SDK累计触达用户数',
+                font: 'bolder 15px Microsoft YaHei'
+            }
+        },{
+            type: 'text',
+            left: 'center',
+            top: '42%',
+            left:'5%',
+            z: 20,
+            style: {
+                fill: 'rgba(235,235,235,0.8)',
+                text: '日均成交趋势',
+                font: 'bolder 15px Microsoft YaHei'
+            }
+        }
+        ],
+        grid: {
+            top: '50%',
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            splitLine:{
+                lineStyle:{
+                    color:'rgb(21,15,99)'
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: 'rgb(67,80,137)'
+                }
+            },
+            boundaryGap: [0, 0.01]
+        },
+        yAxis: {
+            type: 'category',
+            data: ['巴西','印尼','美国','印度','中国'],
+            axisLabel: {
+                textStyle: {
+                    color: 'rgb(67,80,137)'
+                }
+            }
+        },
+        series: [
+
+            {
+                name: '2012年',
+                type: 'bar',
+                barWidth: '40%',
+                itemStyle:{
+                    barBorderRadius : 10 ,
+                    color: new echarts.graphic.LinearGradient(
+                        1, 0, 0, 0,
+                        [
+                            {offset: 0, color: '#83bff6'},
+                            {offset: 0.5, color: '#188df0'},
+                            {offset: 1, color: '#188df0'}
+                        ]
+                    )
+                },
+                data: [30, 50, 45, 48, 27]
+            }
+        ]
+    };
+
+
+    var dataShadow = [];
+    for (var i = 0; i < 12; i++) {
+        dataShadow.push(400);
+    };
+
+    var option2 = {
+        title:{
+            text: '小沃会员',
+            top:'5%',
+            left:'5%',
+            textStyle:{
+                color:'rgb(31,162,230)',
+                fontSize:25
+            }
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        graphic:[{
+            type: 'text',
+            left: 'center',
+            top: '20%',
+            z: 20,
+            style: {
+                fill: 'rgb(255, 255, 255)',
+                text: '185.4万人',
+                font: 'bolder 30px Microsoft YaHei'
+            }
+        },{
+            type: 'text',
+            left: 'center',
+            top: '30%',
+            z: 20,
+            style: {
+                fill: 'rgb(31,162,230)',
+                text: '累计加入小沃会员用户数',
+                font: 'bolder 15px Microsoft YaHei'
+            }
+        },{
+            type: 'text',
+            left: 'center',
+            top: '42%',
+            left:'5%',
+            z: 20,
+            style: {
+                fill: 'rgba(235,235,235,0.8)',
+                text: '月下载量',
+                font: 'bolder 15px Microsoft YaHei'
+            }
+        }],
+        grid: {
+            top: '50%',
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [{
+            type : 'category',
+            data : ['1', '2', '3', '4', '5', '6', '7','8','9','10','11','12'],
+            axisTick: {
+                alignWithLabel: true
+            },
+            splitLine:{
+                lineStyle:{
+                    color:'rgb(32,27,120)'
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: 'rgb(67,80,137)'
+                }
+            },
+        }],
+        yAxis : [{
+            type : 'value',
+            splitLine:{
+                lineStyle:{
+                    color:'rgb(32,27,120)'
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: 'rgb(67,80,137)'
+                }
+            },
+
+        }],
+        series : [{ // For shadow
+            type: 'bar',
+            itemStyle: {
+                normal: {color: 'rgb(31,36,120)'}
+            },
+            barGap:'-85%',
+            barWidth:'60%',
+            data: dataShadow,
+            animation: false
+        },{
+            name:'直接访问',
+            type:'bar',
+            barWidth: '40%',
+            data:[10, 52, 200, 334, 390, 330, 220,150,175,89,220,175],
+
+            itemStyle:{
+                barBorderRadius : [10,10,0,0] ,
+                color: new echarts.graphic.LinearGradient(
+                    0, 1, 0, 0,
+                    [
+                        {offset: 0, color: 'rgb(252,53,48)'},
+                        {offset: 1, color: 'rgb(252,176,7)'}
+                    ]
+                )
+            }
+        }]
+    };
+
+    var option3 = {
+
+        graphic:[{
+            type: 'text',
+            left: 'center',
+            top: '3%',
+            z: 20,
+            style: {
+                fill: 'rgb(255, 255, 255)',
+                text: '小沃电竞大篷车',
+                font: 'bolder 45px Microsoft YaHei'
+            }
+        },{
+            type: 'text',
+            left: '35%',
+            top: '12%',
+            z: -10,
+            style: {
+                text: '■ 覆盖城市',
+                fill: 'rgb(29, 186, 255)',
+                font: '12px Microsoft YaHei',
+                textAlign:'center'
+            }
+        },{
+            type: 'text',
+            left: '48%',
+            top: '12%',
+            z: -10,
+            style: {
+                text: '■ 覆盖高校',
+                fill: 'rgb(29, 186, 255)',
+                font: '12px Microsoft YaHei',
+                textAlign:'center'
+            }
+        },{
+            type: 'text',
+            left: '60%',
+            top: '12%',
+            z: -10,
+            style: {
+                text: '■ 举办比赛',
+                fill: 'rgb(29, 186, 255)',
+                font: '12px Microsoft YaHei',
+                textAlign:'center'
+            }
+        },{
+            type: 'text',
+            left: '36%',
+            top: '14%',
+            z: -10,
+            style: {
+                text: '25个',
+                fill: 'rgb(255, 255, 255)',
+                font: 'bolder 25px Microsoft YaHei',
+                textAlign:'center'
+            }
+        },{
+            type: 'text',
+            left: '49%',
+            top: '14%',
+            z: -10,
+            style: {
+                text: '19所',
+                fill: 'rgb(255, 255, 255)',
+                font: 'bolder 25px Microsoft YaHei',
+                textAlign:'center'
+            }
+        },{
+            type: 'text',
+            left: '61%',
+            top: '14%',
+            z: -10,
+            style: {
+                text: '21场',
+                fill: 'rgb(255, 255, 255)',
+                font: 'bolder 25px Microsoft YaHei',
+                textAlign:'center'
+            }
+        },{
+            type: 'text',
+            left: '35%',
+            top: '20%',
+            z: -10,
+            style: {
+                text: '■ 参与用户',
+                fill: 'rgb(29, 186, 255)',
+                font: '12px Microsoft YaHei',
+                textAlign:'center'
+            }
+        },{
+            type: 'text',
+            left: '54%',
+            top: '20%',
+            z: -10,
+            style: {
+                text: '■ 行驶里程',
+                fill: 'rgb(29, 186, 255)',
+                font: '12px Microsoft YaHei',
+                textAlign:'center'
+            }
+        },{
+            type: 'text',
+            left: '36%',
+            top: '22%',
+            z: -10,
+            style: {
+                text: '129.4千万人',
+                fill: 'rgb(255, 255, 255)',
+                font: 'bolder 25px Microsoft YaHei',
+                textAlign:'center'
+            }
+        },{
+            type: 'text',
+            left: '55%',
+            top: '22%',
+            z: -10,
+            style: {
+                text: '68.3千公里',
+                fill: 'rgb(255, 255, 255)',
+                font: 'bolder 25px Microsoft YaHei',
+                textAlign:'center'
+            }
+        }],
+        tooltip: {
+
+            // formatter: '{b}', //提示标签格式
+            // backgroundColor:"#ff7f50",//提示标签背景颜色
+            // textStyle:{color:"#fff"} //提示标签字体颜色
+            trigger: 'item',
+            formatter: function(params) {
+                var res = params.name+'<br/>';
+                var myseries = option.series;
+                for (var i = 0; i < myseries.length; i++) {
+                    for(var j=0;j<myseries[i].data.length;j++){
+                        if(myseries[i].data[j].name==params.name){
+                            res+=myseries[i].name +' : '+myseries[i].data[j].value+'</br>';
+                        }
+                    }
+                }
+                return res;
+            }
+        },
+        series: [{
+            type: 'map',
+            mapType: 'china',
+            zoom: 1.23,
+            label: {
+                normal: {
+                    show: false,//显示省份标签
+                    textStyle:{color:"#FFF"}//省份标签字体颜色
+                },
+                emphasis: {//对应的鼠标悬浮效果
+                    show: true,
+                    textStyle:{color:"#800080"}
+                }
+            },
+            itemStyle: {
+                normal: {
+                    borderWidth: 1,//区域边框宽度
+                    borderColor: 'rgb(26,36,121)',//区域边框颜色
+                    areaColor:"rgb(18,11,110)",//区域颜色
+                },
+                emphasis: {
+                    borderWidth: .5,
+                    borderColor: '#4b0082',
+                    areaColor:"#ffdead",
+                }
+            },
+        }],
+        geo: {
+            show: true,
+            map: 'china',
+            zoom: 1.23,
+            label: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: false,
+                }
+            },
+            roam: false,
+            itemStyle: {
+                normal: {
+                    areaColor: '#01215c',
+                    borderWidth: 2,//设置外层边框
+                    borderColor:'#9ffcff',
+                    shadowColor: 'rgba(0,54,255, 1)',
+                    shadowBlur: 20
+                }
+            }
+        }
+    };
+
+    var option4 = {
+        title :{
+            text: '小沃学堂',
+            top:'5%',
+            right:'5%',
+            textStyle:{
+                color:'rgb(31,162,230)',
+                fontSize:25
+            }
+        },
+        graphic:[{
+            type: 'text',
+            left: 'center',
+            top: '20%',
+            z: 20,
+            style: {
+                fill: 'rgb(255, 255, 255)',
+                text: '39.9万',
+                font: 'bolder 30px Microsoft YaHei'
+            }
+        },{
+            type: 'text',
+            left: 'center',
+            top: '30%',
+            z: 20,
+            style: {
+                fill: 'rgb(31,162,230)',
+                text: '累计订购用户数',
+                font: 'bolder 15px Microsoft YaHei'
+            }
+        },{
+            type: 'text',
+            left: 'center',
+            top: '42%',
+            left:'5%',
+            z: 20,
+            style: {
+                fill: 'rgba(235,235,235,0.8)',
+                text: '月下订购趋势',
+                font: 'bolder 15px Microsoft YaHei'
+            }
+        }],
+        grid:{
+            top:'50%'
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['0','2','3','4','5','6','7','8','9','10','11','12'],
+            splitLine:{
+                lineStyle:{
+                    color:'rgb(32,27,120)'
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: 'rgb(67,80,137)'
+                }
+            },
+        },
+        yAxis: {
+            type: 'value',
+            splitLine:{
+                lineStyle:{
+                    color:'rgb(32,27,120)'
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: 'rgb(67,80,137)'
+                }
+            },
+        },
+
+        series: [{
+            data: [2.85, 3.12, 2.78, 2.89, 3.94, 4.05, 4.87,2.65,5.51,2.35,1.56,4.58,3.33],
+            type: 'line',
+            smooth:true,
+            smoothMonotone:'x',
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: 'rgba(150,35,74,1)' // 0% 处的颜色
+                    }, {
+                        offset: 1, color: 'rgba(150,35,74,0)' // 100% 处的颜色
+                    }],
+                    globalCoord: false // 缺省为 false
+                }
+            },
+
+
+        }]
+    }
+
+    var option5 = {
+        title:{
+            text:'小沃超信',
+            top:'5%',
+            right:'5%',
+            textStyle:{
+                color:'rgb(31,162,230)',
+                fontSize:25
+            }
+        },
+        grid: {
+            top: '50%',
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        graphic:[{
+            type: 'text',
+            left: 'center',
+            top: '20%',
+            z: 20,
+            style: {
+                fill: 'rgb(255, 255, 255)',
+                text: '5715.2万人',
+                font: 'bolder 30px Microsoft YaHei'
+            }
+        },{
+            type: 'text',
+            left: 'center',
+            top: '30%',
+            z: 20,
+            style: {
+                fill: 'rgb(31,162,230)',
+                text: 'SDK累计触达用户数',
+                font: 'bolder 15px Microsoft YaHei'
+            }
+        },{
+            type: 'text',
+            left: 'center',
+            top: '69%',
+            z: 20,
+            style: {
+                fill: 'rgb(255, 255, 255)',
+                text: '累计覆盖\n手机品牌',
+                font: 'bolder 18px Microsoft YaHei'
+            }
+        }],
+        backgroundColor:{
+            type: 'linear',
+            x: 0,
+            y: 0,
+            x2: 0,
+            y2: 1,
+            colorStops: [
+                {
+                    offset: 0, color: 'rgb(11,8,116)' // 0% 处的颜色
+                }, {
+                    offset: 1, color: 'rgb(18,9,90)' // 100% 处的颜色
+                }
+            ]
+        },
+        color:['rgb(1,119,245)','rgb(121,19,243)','rgb(204,32,232)','rgb(228,175,46)','rgb(45,66,245)','rgb(47,215,218)','rgb(230,56,68)'],
+
+        series: [{
+            name:'访问来源',
+            type:'pie',
+            radius: ['30%', '50%'],
+            label: {
+                normal: {
+                    formatter: '{b|{b}}\n{hr|}\n {c|{c}} ',
+                    rich: {
+                        hr: {
+                            borderColor: 'rgb(109,191,233)',
+                            width: '100%',
+                            borderWidth: 0.5,
+                            height: 0
+                        },
+                        b: {
+                            fontSize: 15,
+                            color : 'rgb(109,191,233)',
+                            lineHeight: 30
+                        },
+                        c:{
+                            color : '#FFF',
+                            fontSize: 15,
+                            lineHeight: 30
+                        }
+
+                    }
+                }
+            },
+            data:[
+                {value:335, name:'华为'},
+                {value:310, name:'oppo'},
+                {value:234, name:'三星'},
+                {value:135, name:'小米'},
+                {value:1048, name:'vivo'},
+                {value:251, name:'其他'},
+                {value:147, name:'苹果'},
+            ],
+            center:['50%','73%']
+        }]
+    };
+
+    mychart1.setOption(option1);
+    mychart2.setOption(option2);
+    mychart3.setOption(option3);
+    mychart4.setOption(option4);
+    mychart5.setOption(option5);
+</script>
+</body>
+</html>

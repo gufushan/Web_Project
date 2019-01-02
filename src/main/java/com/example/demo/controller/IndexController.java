@@ -28,4 +28,14 @@ public class IndexController {
         System.out.println("fan index");
         return "dashboard1";
     }
+
+    @RequestMapping("/websocket")
+    public String getWebSocket(){
+        return "webSock";
+    }
+
+    @RequestMapping("/woindex")
+    public String getWoIndex(){
+        return "woindex";
+    }
 }

@@ -11,5 +11,17 @@ spring:
 server:
   port: 80
 
+redis:
+  host : 111.231.81.53
+  port : 6379
+  timeout : 3
+  password :
+  poolMaxTotal : 10
+  poolMaxIdle : 10
+  poolMaxWait : 3
+
+
+
+
 
 

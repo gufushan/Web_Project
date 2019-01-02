@@ -1,0 +1,11 @@
+/*.smallEcharts { height: 450px;padding: 0;margin-top: 15px;background-color: rgb(12,9,114)}*/
+.scroll{ overflow-x: hidden; overflow-y: auto;}    
+.scroll-son{overflow-x: hidden;}
+::-webkit-scrollbar{
+display:none;
+}
+.smallEcharts { height: 430px;padding: 0;margin-top: 15px;background: linear-gradient(to top left,rgb(19,9,88),rgb(12,8,117))}
+.leftContiner{padding:10px 3% 10px 3%;height: 960px}
+.rightContiner{padding:10px 2% 10px 3%;height: 960px}
+.MapEcharts{height: 970px;padding:0}
+.continer{background-color: rgb(5,1,62)}

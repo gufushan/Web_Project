@@ -49,6 +49,20 @@
                     {value:1548, name:'搜索引擎'}
                 ]
             }
+        ],
+        graphic:[
+            {
+                id:'text1',
+                type:'text',
+                style:{
+                    text:[
+                        "测试数据1",
+                        "测试数据2",
+                        "测试数据3"
+                    ].join("\n")
+                }
+
+            }
         ]
     };
     option2 = {
